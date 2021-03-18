@@ -3,12 +3,21 @@ import axios from "axios";
 
 const CityWeatherHooks = (props) => {
   const [city, setCity] = useState("");
+  const [temp, setTemp] = useState("");
+  const [tempMin, setTempMin] = useState("");
+  const [tempMax, setTempMax] = useState("");
+
 
   useEffect(() => {
     const getWeather = async () => {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${props.cityName}&units=metric&appid=44690f1d736d6c66baf34ce576ab330e`;
       const resp = await axios.get(url);
-      setCity(resp.data)
+      setCity(resp.data.name)
+      setTemp(resp.data.main.temp)
+      setTempMin(resp.data.main.temp_min)
+      setTempMax(resp.data.main.temp_max)
+
+
       console.log(resp.data)
     };
 
@@ -16,13 +25,15 @@ const CityWeatherHooks = (props) => {
   }, [props.cityName]);
 
 
-  const iconUrl =
-    city && `http://openweathermap.org/img/w/${city.weather[0].icon}.png`;
-
 
   return (
     <>
-      <h1>{city.name}</h1>
+      <h1>{city}</h1>
+      <h1>Temp: {temp}</h1>
+      <h1>Temp Min: {tempMin}</h1>
+      <h1>Temp Max: {tempMax}</h1>
+
+
 
     </>
   );

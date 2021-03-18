@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import CityWeatherHooks from "./CityWeatherHooks";
 
-const WeatherAppHooks = (props) => {
-  const [enteredCity, setEnteredCity] = useState("Vancouver");
-  const [enteredCityWeather, setEnteredCityWeather] = useState("Vancouver");
+const WeatherAppHooks = () => {
+  const [enteredCity, setEnteredCity] = useState("");
+  const [enteredCityWeather, setEnteredCityWeather] = useState("");
 
   const changeHandler = (e) => {
     setEnteredCity(e.target.value);
@@ -24,7 +24,7 @@ const WeatherAppHooks = (props) => {
         </form>
       </div>
 
-      <CityWeatherHooks cityName={enteredCityWeather} />
+      <CityWeatherHooks cityName={enteredCityWeather}  />
 
     </div>
   );

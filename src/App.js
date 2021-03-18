@@ -7,7 +7,7 @@ import WeatherAppHooks from './components/WeatherApp/WeatherAppHooks'
 const App = (props) => {
   // return <Ingredients />
   return <> 
-    <WeatherApp /> 
+    {/* <WeatherApp />  */}
     <br /> 
     <br /> 
     <WeatherAppHooks /> </>
