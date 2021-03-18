@@ -17,7 +17,7 @@ class CityWeather extends Component {
     }
 
     getWeather = async()=>{
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.props.cityName}&units=metric&appid=44690f1d736d6c66baf34ce576ab330e`
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.props.cityName}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
         const resp = await axios.get(url);
         console.log(resp.data);
     }
